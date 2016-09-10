@@ -1,0 +1,124 @@
+#!/bin/bash
+set -eu
+
+main() {
+  ensure_brew_exists
+  update_brew_things
+  setup_ruby
+  setup_bash_it
+  update_luanvim
+  update_tmux_plugins
+  ensure_git_config_set
+  update_go_tools
+
+  echo "Finished hopping!"
+}
+
+ensure_brew_exists() {
+  echo "Ensuring brew exists..."
+  if [[ ! -x /usr/local/bin/brew ]] ; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+}
+
+update_brew_things() {
+  echo "Updating brew things..."
+  brew tap Homebrew/bundle
+  brew update
+  (cd && brew bundle -v)
+}
+
+setup_ruby() {
+    echo "Setting up ruby..."
+    # chruby contains unbound variables
+    set +u
+    source /usr/local/share/chruby/chruby.sh
+
+    if chruby $(cat "${HOME}/.ruby-version") > /dev/null 2>&1; then
+        echo "$(cat "${HOME}/.ruby-version") already installed..."
+    else
+        echo "will install $(cat "${HOME}/.ruby-version")..."
+        ruby-install $(cat ~/.ruby-version)
+    fi
+    set -u
+    sudo gem install bundler
+}
+
+setup_bash_it() {
+    echo "Setting up bash-it..."
+    if [ -d "${HOME}/.bash_it" ]; then
+        (cd "${HOME}/.bash_it" && git pull)
+    else
+        git clone https://github.com/Bash-it/bash-it.git "${HOME}/.bash_it"
+    fi
+    "${HOME}/.bash_it/install.sh" --silent
+    mv ~/.bash_profile.bak ~/.bash_profile
+
+    set +eu
+    source "${HOME}/.bash_it/bash_it.sh"
+    (
+        cd "${HOME}/.bash_it"
+        for plugin in git git-subrepo; do bash-it enable plugin $plugin; done
+        for completion in awscli brew docker docker-machine git ssh vagrant; do
+            bash-it enable completion $completion
+        done)
+    set -eu
+}
+
+update_luanvim() {
+  echo "Updating luanvim..."
+  if [[ ! -d "${HOME}/.vim" ]] ; then
+    git clone https://github.com/luan/vimfiles.git ~/.vim
+  fi
+  ~/.vim/update
+}
+
+update_tmux_plugins() {
+  echo "Updating tmux plugins..."
+  if [[ ! -d "${HOME}/.tmux/plugins/tpm" ]] ; then
+    mkdir -p "${HOME}/.tmux/plugins"
+    git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+  else
+    (cd "${HOME}/.tmux/plugins/tpm" ; git pull )
+  fi
+}
+
+ensure_git_config_set() {
+  echo "Ensuring git configs are set up..."
+  local gitconfig
+
+  if [[ ! -f "${HOME}/.gitconfig" ]] ; then
+    write_git_config_header
+  fi
+
+  if [[ $(head -n2 "${HOME}/.gitconfig") != "[include]
+  path = ${HOME}/.gitconfig-shared" ]] ; then
+    gitconfig=$(cat "${HOME}/.gitconfig")
+    write_git_config_header
+    echo "${gitconfig}" >> "${HOME}/.gitconfig"
+  fi
+}
+
+write_git_config_header() {
+    echo "[include]" > "${HOME}/.gitconfig"
+    echo "  path = ${HOME}/.gitconfig-shared" >> "${HOME}/.gitconfig"
+}
+
+update_go_tools() {
+    echo "Installing go tools..."
+    for tool in "github.com/rogpeppe/godef" \
+                    "github.com/alecthomas/gometalinter" \
+                    "golang.org/x/tools/cmd/gorename" \
+                    "golang.org/x/tools/cmd/goimports" \
+                    "github.com/tools/godep" \
+                    "github.com/maxbrunsfeld/counterfeiter" \
+                    "github.com/nsf/gocode" \
+                    "github.com/onsi/gomega" \
+                    "github.com/onsi/ginkgo" \
+                    "github.com/onsi/ginkgo/ginkgo"; do
+        go get -u -v "$tool"
+    done
+    gometalinter --install
+}
+
+main
