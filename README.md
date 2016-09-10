@@ -26,3 +26,4 @@ Gotchas:
 - You have to run `shiftit` manually the first time, and authorise it in
   `accessibility services`. It will tell you how to do this.
 - You have to run `flycut` manually the first time.
+- Remember to set the `flycut` and `shifit` to be login items
