@@ -18,7 +18,7 @@ Then daily:
 
 Gotchas:
 
-- The first time you run `tmux`, you'll want to do `ctl-space I`. This will
+- The first time you run `tmux`, you'll want to do `ctrl-space I`. This will
   install a bunch of plugins, without which you will be sad.
 - The latest iTerm doesn't handle the `alt` key the way most unixers expect.
   You may wish to set it to [send escape
