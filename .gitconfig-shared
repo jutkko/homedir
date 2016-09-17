@@ -2,27 +2,28 @@
 [push]
   recurseSubmodules = on-demand
 [alias]
-  st = status
-  di = diff
-  co = checkout
-  ci = duet-commit --verbose
-  br = branch
-  sta = stash
-  llog = log --date=local
-  flog = log --pretty=fuller --decorate
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  lol = log --graph --decorate --oneline
-  lola = log --graph --decorate --oneline --all
   blog = log origin/master... --left-right
+  br = branch
+  ci = duet-commit --verbose
+  co = checkout
+  di = diff
   ds = diff --staged
   fixup = commit --fixup
-  squash = commit --squash
-  unstage = reset HEAD
-  rum = rebase master@{u}
-  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  flog = log --pretty=fuller --decorate
   forget = rm --cached
-  wewrotethat = duet-commit --amend --reset-author --verbose
+  hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  llog = log --date=local
+  lol = log --graph --decorate --oneline
+  lola = log --graph --decorate --oneline --all
+  ls = ls-tree --name-only -r head
   pullsubs = submodule update --init --recursive
+  rum = rebase master@{u}
+  squash = commit --squash
+  st = status
+  sta = stash
+  unstage = reset HEAD
+  wewrotethat = duet-commit --amend --reset-author --verbose
 [color]
   branch = auto
   diff = auto
