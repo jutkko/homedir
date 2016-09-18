@@ -18,9 +18,9 @@ Then daily:
 
 Gotchas:
 
-- The first time you run `tmux`, you'll want to do `ctrl-space I`. This will
+- The first time you run `tmux`, you'll want to do <kbd>ctrl-space I</kbd>. This will
   install a bunch of plugins, without which you will be sad.
-- The latest iTerm doesn't handle the `alt` key the way most unixers expect.
+- The latest iTerm doesn't handle the <kbd>alt</kbd> key the way most unixers expect.
   You may wish to set it to [send escape
   codes](https://www.iterm2.com/faq.html).
 - You have to run `shiftit` manually the first time, and authorise it in
