@@ -2,6 +2,7 @@
 set -eu
 
 main() {
+  keep_root
   ensure_brew_exists
   update_brew_things
   setup_ruby
@@ -120,6 +121,10 @@ update_go_tools() {
         go get -u -v "$tool"
     done
     gometalinter --install
+}
+
+keep_root() {
+  while true; do sudo -v; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
 }
 
 main
