@@ -11,6 +11,7 @@ main() {
   update_tmux_plugins
   ensure_git_config_set
   update_go_tools
+  macos_setup
 
   echo "Finished hopping!"
 }
@@ -125,6 +126,8 @@ update_go_tools() {
 
 keep_root() {
   while true; do sudo -v; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
+macos_setup() {
+  defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 }
 
 main
