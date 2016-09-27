@@ -16,6 +16,10 @@ main() {
   echo "Finished hopping!"
 }
 
+keep_root() {
+  while true; do sudo -v; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
+}
+
 ensure_brew_exists() {
   echo "Ensuring brew exists..."
   if [[ ! -x /usr/local/bin/brew ]] ; then
@@ -124,8 +128,6 @@ update_go_tools() {
     gometalinter --install
 }
 
-keep_root() {
-  while true; do sudo -v; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
 macos_setup() {
   defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 }
