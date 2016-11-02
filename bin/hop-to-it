@@ -129,6 +129,7 @@ update_go_tools() {
     gometalinter --install
 }
 
+# TODO separate this to some platform specific setup
 macos_setup() {
   defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 }
