@@ -25,7 +25,6 @@ brew 'git-duet'
 brew 'gnupg2'
 brew 'go'
 brew 'htop'
-brew 'universal-ctags', args: ['HEAD']
 brew 'ipcalc'
 brew 'jq'
 brew 'lastpass-cli'
@@ -41,6 +40,7 @@ brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
+brew 'universal-ctags', args: ['HEAD']
 brew 'vim', args: ['with-lua']
 brew 'watch'
 brew 'wget'
