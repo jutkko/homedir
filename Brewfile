@@ -45,7 +45,6 @@ brew 'vim', args: ['with-lua']
 brew 'watch'
 brew 'wget'
 
-cask 'atom'
 cask 'battle-net'
 cask 'dropbox'
 cask 'flux'
