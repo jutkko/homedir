@@ -32,6 +32,7 @@ update_brew_things() {
   echo "Updating brew things..."
   brew tap Homebrew/bundle
   brew update
+  brew upgrade
   (cd && brew bundle -v)
 }
 
@@ -76,9 +77,8 @@ update_luanvim() {
   echo "Updating luanvim..."
   if [[ ! -d "${HOME}/.vim" ]] ; then
     git clone https://github.com/luan/vimfiles.git ~/.vim
-    git checkout b1230b198b8b21e19904addb8646f383e4b09435
   fi
-  ~/.vim/update
+  (cd ~/.vim/ && ./update)
 }
 
 update_tmux_plugins() {
