@@ -7,7 +7,6 @@ main() {
   update_brew_things
   setup_ruby
   setup_bash_it
-  update_luanvim
   update_tmux_plugins
   ensure_git_config_set
   update_go_tools
@@ -73,13 +72,13 @@ setup_bash_it() {
     set -eu
 }
 
-update_luanvim() {
-  echo "Updating luanvim..."
-  if [[ ! -d "${HOME}/.vim" ]] ; then
-    git clone https://github.com/luan/vimfiles.git ~/.vim
-  fi
-  (cd ~/.vim/ && ./update)
-}
+#update_luanvim() {
+#  echo "Updating luanvim..."
+#  if [[ ! -d "${HOME}/.vim" ]] ; then
+#    git clone https://github.com/luan/vimfiles.git ~/.vim
+#  fi
+#  (cd ~/.vim/ && ./update)
+#}
 
 update_tmux_plugins() {
   echo "Updating tmux plugins..."
