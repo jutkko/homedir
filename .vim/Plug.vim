@@ -1,13 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
 " Defaults {{{
-
   Plug 'tpope/vim-sensible'
-
 " }}}
 
 " Navigation {{{
-
   " Displays tags in a window, ordered by scope
   Plug 'majutsushi/tagbar'
 
@@ -16,16 +13,13 @@ call plug#begin('~/.vim/plugged')
 
   " A tree explorer plugin for vim
   Plug 'scrooloose/nerdtree'
-
 " }}}
 
 " Commands {{{
-
   " A command-line fuzzy finder written in Go
+  let g:fzf_command_prefix = 'FZF'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-  " Active fork of kien/ctrlp.vim. Fuzzy file, buffer, mru, tag, etc finder.
-  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'junegunn/fzf.vim'
 
 " Seamless navigation between tmux panes and vim splits
   Plug 'christoomey/vim-tmux-navigator'
@@ -42,6 +36,27 @@ call plug#begin('~/.vim/plugged')
 " enable repeating supported plugin maps with '.'
   Plug 'tpope/vim-repeat'
 
+" comment stuff out
+  Plug 'tpope/vim-commentary'
+
+" add emacs/bash/cocoa key bindings to vim, in insert and command-line modes.
+  Plug 'maxbrunsfeld/vim-emacs-bindings'
+
+" vim script for text filtering and alignment; e.g. :Tabularize /,
+  Plug 'godlygeek/tabular'
 " }}}
+
+
+" UI Additions {{{
+  " Colors {{{
+    Plug 'dolio/vim-hybrid'
+    Plug 'morhetz/gruvbox'
+    Plug 'flazz/vim-colorschemes'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'mhinz/vim-signify'
+
+  " }}}
+
 
 call plug#end()
