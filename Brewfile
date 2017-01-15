@@ -40,6 +40,7 @@ brew 's3cmd'
 brew 'spruce'
 brew 'the_silver_searcher'
 brew 'tig'
+brew 'tmate'
 brew 'tmux'
 brew 'tree'
 brew 'universal-ctags', args: ['HEAD']
