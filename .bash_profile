@@ -11,9 +11,6 @@ export GPG_TTY=`tty`
 export EDITOR=vim
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-[ -s $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-
 export GIT_DUET_GLOBAL=true
 export GIT_DUET_ROTATE_AUTHOR=1
 export LPASS_AGENT_TIMEOUT=$((9 * 3600))
@@ -26,6 +23,7 @@ source /usr/local/share/chruby/auto.sh
 export GOPATH=~/go
 export PATH=$GOPATH/bin:$PATH
 
+# Homedir
 export PATH="${HOME}/bin:${PATH}"
 
 eval "$(direnv hook bash)"

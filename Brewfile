@@ -10,7 +10,6 @@ tap 'starkandwayne/cf'
 tap 'universal-ctags/universal-ctags'
 
 brew 'ack'
-brew 'autojump'
 brew 'awscli'
 brew 'bash'
 brew 'cf-cli'
