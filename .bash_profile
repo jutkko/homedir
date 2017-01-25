@@ -2,7 +2,6 @@
 
 export BASH_IT="${HOME}/.bash_it"
 export BASH_IT_CUSTOM="${HOME}/.bash_it_custom"
-export BASH_IT_THEME='bobby'
 export SCM_CHECK=true
 unset MAILCHECK
 export SCM_CHECK=true
