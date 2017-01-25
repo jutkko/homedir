@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 export BASH_IT="${HOME}/.bash_it"
+export BASH_IT_CUSTOM="${HOME}/.bash_it_custom"
 export BASH_IT_THEME='bobby'
 export SCM_CHECK=true
 unset MAILCHECK
@@ -9,7 +10,6 @@ source $BASH_IT/bash_it.sh
 export GPG_TTY=`tty`
 
 export EDITOR=vim
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 export GIT_DUET_GLOBAL=true
 export GIT_DUET_ROTATE_AUTHOR=1
