@@ -14,10 +14,6 @@ export GIT_DUET_GLOBAL=true
 export GIT_DUET_ROTATE_AUTHOR=1
 export LPASS_AGENT_TIMEOUT=$((9 * 3600))
 
-# ruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-
 # go
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"

@@ -2,10 +2,8 @@
 set -eu
 
 main() {
-  keep_root
   ensure_brew_exists
   update_brew_things
-  setup_ruby
   setup_bash_it
   update_tmux_plugins
   ensure_git_config_set
@@ -13,11 +11,6 @@ main() {
   macos_setup
 
   echo "Finished hopping!"
-}
-
-keep_root() {
-  sudo -v
-  while true; do sudo -v; sleep 60; kill -0 $$ || exit; done 2>/dev/null &
 }
 
 ensure_brew_exists() {
@@ -32,23 +25,7 @@ update_brew_things() {
   brew tap Homebrew/bundle
   brew update
   brew upgrade
-  (cd && brew bundle -v)
-}
-
-setup_ruby() {
-  echo "Setting up ruby..."
-  # chruby contains unbound variables
-  set +u
-  source /usr/local/share/chruby/chruby.sh
-
-  if chruby $(cat "${HOME}/.ruby-version") > /dev/null 2>&1; then
-    echo "$(cat "${HOME}/.ruby-version") already installed..."
-  else
-    echo "will install $(cat "${HOME}/.ruby-version")..."
-    ruby-install $(cat ~/.ruby-version)
-  fi
-  set -u
-  sudo gem install bundler
+  brew bundle -v --file="$HOME/Brewfile"
 }
 
 setup_bash_it() {
@@ -58,23 +35,27 @@ setup_bash_it() {
   else
     git clone https://github.com/Bash-it/bash-it.git "${HOME}/.bash_it"
   fi
+
   "${HOME}/.bash_it/install.sh" --silent
   mv ~/.bash_profile.bak ~/.bash_profile
 
   set +eu
   source "${HOME}/.bash_it/bash_it.sh"
   (
-  cd "${HOME}/.bash_it"
-  for plugin in git git-subrepo; do bash-it enable plugin $plugin; done
-  for completion in awscli brew docker docker-machine git ssh vagrant; do
-    bash-it enable completion $completion
-  done)
+    cd "${HOME}/.bash_it"
+    for plugin in git git-subrepo; do bash-it enable plugin $plugin; done
+
+    for completion in awscli brew docker docker-machine git ssh vagrant; do
+      bash-it enable completion $completion
+    done
+  )
   set -eu
 }
 
 update_tmux_plugins() {
   echo "Updating tmux plugins..."
-  if [ ! -d "${HOME}/.tmux/plugins/tpm" ] ; then
+  if [ ! -d "${HOME}/.tmux/plugins/tpm" ]
+  then
     mkdir -p "${HOME}/.tmux/plugins"
     git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
   else
@@ -90,8 +71,8 @@ ensure_git_config_set() {
     write_git_config_header
   fi
 
-  if [ $(head -n2 "${HOME}/.gitconfig") != "[include]
-    path = ${HOME}/.gitconfig-shared" ] ; then
+  if [ "$(head -n2 $HOME/.gitconfig)" != "[include] path = $HOME/.gitconfig-shared" ]
+  then
     gitconfig=$(cat "${HOME}/.gitconfig")
     write_git_config_header
     echo "${gitconfig}" >> "${HOME}/.gitconfig"
