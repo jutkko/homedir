@@ -106,6 +106,7 @@ write_git_config_header() {
 update_go_tools() {
   echo "Installing go tools..."
   for tool in "github.com/alecthomas/gometalinter" \
+              "github.com/godoctor/godoctor" \
               "github.com/jutkko/copy-pasta" \
               "github.com/maxbrunsfeld/counterfeiter" \
               "github.com/nsf/gocode" \

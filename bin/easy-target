@@ -21,7 +21,7 @@ main() {
     exit 1
   fi
 
-  local accesskey="$(lpass show 'personal/aws-s3' --name)"
+  local accesskey="$(lpass show 'personal/aws-s3' --username)"
   local secretaccesskey="$(lpass show 'personal/aws-s3' --password)"
 
   local target="$1"
