@@ -16,7 +16,6 @@
   llog = log --date=local
   lol = log --graph --decorate --oneline
   lola = log --graph --decorate --oneline --all
-  ls = ls-tree --name-only -r head
   pullsubs = submodule update --init --recursive
   rum = rebase master@{u}
   squash = commit --squash
