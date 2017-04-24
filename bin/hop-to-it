@@ -97,6 +97,7 @@ update_go_tools() {
               "github.com/tools/godep" \
               "golang.org/x/tools/cmd/goimports" \
               "golang.org/x/tools/cmd/gorename" \
+              "golang.org/x/tools/cmd/guru" \
               "github.com/rogpeppe/godef"
   do
       go get -u -v "$tool"
