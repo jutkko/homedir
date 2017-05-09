@@ -96,11 +96,11 @@ update_go_tools() {
               "github.com/onsi/ginkgo" \
               "github.com/onsi/ginkgo/ginkgo" \
               "github.com/onsi/gomega" \
-              "github.com/rogpeppe/godef"
+              "github.com/rogpeppe/godef" \
               "github.com/tools/godep" \
               "golang.org/x/tools/cmd/goimports" \
               "golang.org/x/tools/cmd/gorename" \
-              "golang.org/x/tools/cmd/guru" \
+              "golang.org/x/tools/cmd/guru"
   do
       go get -u -v "$tool"
   done
