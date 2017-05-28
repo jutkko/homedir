@@ -7,7 +7,7 @@ unset MAILCHECK
 source "$BASH_IT/bash_it.sh"
 
 # editor stuff
-export GPG_TTY=`tty`
+export GPG_TTY=$(tty)
 export EDITOR=vim
 
 export GIT_DUET_GLOBAL=true
