@@ -16,9 +16,9 @@ export LPASS_AGENT_TIMEOUT=$((9 * 3600))
 
 # go
 export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
 
 # homedir bins
-export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/bin"
 
 eval "$(direnv hook bash)"
