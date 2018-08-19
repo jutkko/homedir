@@ -52,3 +52,4 @@ cask "screenhero"
 cask "telegram-desktop"
 cask "transmission"
 mas "WeChat", id: 836500024
+mas "Outline", id: 1356178125
