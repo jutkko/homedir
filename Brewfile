@@ -51,5 +51,6 @@ cask "spatial"
 brew "steam"
 cask "telegram-desktop"
 cask "transmission"
-mas "WeChat", id: 836500024
 mas "Outline", id: 1356178125
+mas "The Unarchiver", id: 425424353
+mas "WeChat", id: 836500024
