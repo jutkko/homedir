@@ -8,6 +8,7 @@ brew "ack"
 brew "readline"
 brew "bash"
 brew "coreutils"
+brew "dep"
 brew "direnv"
 brew "git"
 brew "docker"
@@ -48,9 +49,9 @@ cask "java"
 cask "iina"
 cask "spectacle"
 cask "spatial"
-brew "steam"
 cask "telegram-desktop"
 cask "transmission"
+cask "yujitach-menumeters"
 mas "Outline", id: 1356178125
 mas "The Unarchiver", id: 425424353
 mas "WeChat", id: 836500024
