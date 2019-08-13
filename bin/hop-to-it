@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu
+set -ex
 
 main() {
   ensure_brew_exists
@@ -23,7 +23,7 @@ update_brew_things() {
   echo "Updating brew things..."
   brew tap Homebrew/bundle
   brew update
-  brew upgrade
+  brew upgrade --ignore-pinned
   brew bundle -v --file="$HOME/Brewfile"
 }
 

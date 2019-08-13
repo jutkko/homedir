@@ -40,6 +40,7 @@ brew "watch"
 brew "wget"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "battle-net"
+cask "docker"
 cask "dropbox"
 cask "flycut"
 cask "font-inconsolata"
@@ -49,9 +50,9 @@ cask "java"
 cask "iina"
 cask "spectacle"
 cask "spatial"
+cask "sublime-text"
 cask "telegram-desktop"
 cask "transmission"
 cask "yujitach-menumeters"
-mas "Outline", id: 1356178125
 mas "The Unarchiver", id: 425424353
 mas "WeChat", id: 836500024
