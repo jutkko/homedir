@@ -48,7 +48,7 @@ cask "rectangle"
 cask "sublime-text"
 cask "telegram-desktop"
 cask "transmission"
-cask "yujitach-menumeters"
+cask "menumeters"
 mas "Microsoft To Do", id: 1274495053
 mas "The Unarchiver", id: 425424353
 mas "WeChat", id: 836500024
