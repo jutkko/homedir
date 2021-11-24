@@ -33,12 +33,11 @@ brew "tig"
 brew "tmate"
 brew "tmux"
 brew "tree"
-brew "vim", args: ["with-lua"]
+brew "vim"
 brew "watch"
 brew "wget"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "docker"
-cask "dropbox"
 cask "flycut"
 cask "font-inconsolata"
 cask "google-chrome"
