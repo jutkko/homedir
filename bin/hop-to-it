@@ -65,10 +65,8 @@ write_git_config_header() {
 
 # TODO separate this to some platform specific setup
 macos_setup() {
+  rm ~/Library/Application\ Support/Dock/*.db ; killall Dock
   defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
-
-  # Stop airpot debug logs in /tmp
-  /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport debug -AllDriver
 }
 
 main

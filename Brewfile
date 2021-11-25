@@ -38,6 +38,7 @@ brew "vim"
 brew "watch"
 brew "wget"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "clash-for-windows"
 cask "flycut"
 cask "font-inconsolata"
 cask "google-chrome"
