@@ -37,17 +37,17 @@ brew "vim"
 brew "watch"
 brew "wget"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
-cask "docker"
 cask "flycut"
 cask "font-inconsolata"
 cask "google-chrome"
 cask "iterm2"
 cask "iina"
+cask "menumeters"
 cask "rectangle"
 cask "sublime-text"
 cask "telegram-desktop"
 cask "transmission"
-cask "menumeters"
+cask "visual-studio-code"
 mas "Microsoft To Do", id: 1274495053
 mas "The Unarchiver", id: 425424353
 mas "WeChat", id: 836500024

@@ -6,7 +6,6 @@ main() {
   update_brew_things
   update_tmux_plugins
   ensure_git_config_set
-  update_go_tools
   macos_setup
 
   echo "Finished hopping!"
@@ -57,30 +56,6 @@ ensure_git_config_set() {
 write_git_config_header() {
   echo "[include]" > "${HOME}/.gitconfig"
   echo "  path = ${HOME}/.gitconfig-shared" >> "${HOME}/.gitconfig"
-}
-
-update_go_tools() {
-  echo "Installing go tools..."
-  for tool in "github.com/alecthomas/gometalinter" \
-              "github.com/godoctor/godoctor" \
-              "github.com/golang/protobuf/proto" \
-              "github.com/golang/protobuf/protoc-gen-go" \
-              "github.com/jutkko/copy-pasta" \
-              "github.com/jutkko/galendar" \
-              "github.com/maxbrunsfeld/counterfeiter" \
-              "github.com/nsf/gocode" \
-              "github.com/onsi/ginkgo" \
-              "github.com/onsi/ginkgo/ginkgo" \
-              "github.com/onsi/gomega" \
-              "github.com/rogpeppe/godef" \
-              "github.com/tools/godep" \
-              "golang.org/x/tools/cmd/goimports" \
-              "golang.org/x/tools/cmd/gorename" \
-              "golang.org/x/tools/cmd/guru"
-  do
-      go get -u -v "$tool"
-  done
-  gometalinter --install
 }
 
 # TODO separate this to some platform specific setup
