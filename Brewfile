@@ -47,7 +47,7 @@ cask "iina"
 cask "menumeters"
 cask "rectangle"
 cask "sublime-text"
-cask "telegram-desktop"
+cask "telegram"
 cask "transmission"
 cask "visual-studio-code"
 mas "Microsoft To Do", id: 1274495053
