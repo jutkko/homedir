@@ -38,7 +38,7 @@ update_tmux_plugins() {
   fi
 }
 
-update_tmux_plugins() {
+submodule_setup() {
   git submodule update --init --recursive
 }
 
