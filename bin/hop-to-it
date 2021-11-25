@@ -5,6 +5,7 @@ main() {
   ensure_brew_exists
   update_brew_things
   update_tmux_plugins
+  submodule_setup
   ensure_git_config_set
   macos_setup
 
@@ -35,6 +36,10 @@ update_tmux_plugins() {
   else
     (cd "${HOME}/.tmux/plugins/tpm" ; git pull )
   fi
+}
+
+update_tmux_plugins() {
+  git submodule update --init --recursive
 }
 
 ensure_git_config_set() {
