@@ -9,6 +9,7 @@ To use:
 1. `git remote add origin git@github.com:jutkko/homedir.git`
 1. `git fetch origin`
 1. `git reset --hard origin/master`
+1. `git submodule update --init`
 1. `. ~/.bash_profile` the first time you run this, you will get some errors,
    but you should stay assured. (this may not work now)
 1. Set up the iTerm left alt meta key to ESC to enable tmux and vim navigation
