@@ -41,7 +41,6 @@ cask "beeper"
 cask "copyq"
 cask "font-inconsolata"
 cask "iina"
-cask "ngrok"
 cask "raspberry-pi-imager"
 cask "rectangle"
 cask "shottr"
@@ -55,7 +54,6 @@ mas "Bob", id: 1630034110
 mas "Microsoft To Do", id: 1274495053
 mas "The Unarchiver", id: 425424353
 mas "WeChat", id: 836500024
-mas "WHAT THE CAR?", id: 1534708672
 mas "WhatsApp", id: 1147396723
 vscode "GitHub.copilot"
 vscode "golang.go"
